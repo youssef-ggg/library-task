@@ -1,12 +1,15 @@
 
 const bookRouter = require('express').Router()
 
-const BookController = require('./bookController.js')
+const bookController = require('./bookController.js')
 
 module.exports = function constructBookRoutes(app){
 
-    bookRouter.get('/', BookController.getBooks)
-    bookRouter.post('/',BookController.create)
+    bookRouter.get('/', bookController.browseAll)
+    bookRouter.post('/',bookController.create)
+    bookRouter.put('/:id',bookController.update)
+    bookRouter.get('/:id',bookController.findByPk)
+
     app.use("/books",bookRouter);
     
 }

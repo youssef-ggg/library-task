@@ -5,7 +5,13 @@
 @contentType = application/json
 
 ## Get all books
-GET {{host}}
+# - page in the query URL?page= how many 
+# - size is the limit of books you want back if query URL?size=10 will return only 10 books
+# - order will order the books by the attribute passed
+# - table.cloulmn attribute name can use to search by it's value if the value contians % it
+# - will search the like database if not it will try to find the exact value of the attribute 
+# passed 
+GET {{host}}?order=title,ASC&author=Cormac%&page=2
 Content-Type:{{contentType}}
 
 ### create a book
@@ -19,3 +25,15 @@ Content-Type:{{contentType}}
     "quantity":3,
     "shelfLocation":"E3"
 }
+
+### update a book
+PUT {{host}}/2
+Content-Type:{{contentType}}
+
+{
+    "author":"Shakespear"
+
+}
+
+### Get a single book 
+GET {{host}}/1
