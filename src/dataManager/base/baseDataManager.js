@@ -83,7 +83,6 @@ class BaseDataManager {
             }
         }
         options.where = where
-        console.log(options)
         try {
             return this.model.findAll(options)
         } catch (error) {
