@@ -1,0 +1,21 @@
+
+@hostname = localhost
+@port = 3000
+@host = http://{{hostname}}:{{port}}/books
+@contentType = application/json
+
+## Get all books
+GET {{host}}
+Content-Type:{{contentType}}
+
+### create a book
+POST {{host}}
+Content-Type:{{contentType}}
+
+{
+    "author":"Cormac McCarthy",
+    "title": "Blood Meridian",
+    "ISBN": "0-394-54482-X",
+    "quantity":3,
+    "shelfLocation":"E3"
+}

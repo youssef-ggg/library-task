@@ -1,0 +1,9 @@
+
+@hostname = localhost
+@port = 3000
+@host = http://{{hostname}}:{{port}}/borrower
+@contentType = application/json
+
+## Get all books
+GET {{host}}
+Content-Type:{{contentType}}
