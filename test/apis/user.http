@@ -1,0 +1,41 @@
+
+@hostname = localhost
+@port = 3000
+@host = http://{{hostname}}:{{port}}/user
+@contentType = application/json
+
+## Get all books
+GET {{host}}
+Content-Type:{{contentType}}
+
+
+## Get all users
+# - page in the query URL?page= how many 
+# - size is the limit of books you want back if query URL?size=10 will return only 10 books
+# - order will order the books by the attribute passed
+# - table.cloulmn attribute name can use to search by it's value if the value contians % it
+# - will search the like database if not it will try to find the exact value of the attribute 
+# passed 
+GET {{host}}
+Content-Type:{{contentType}}
+
+### create a book
+POST {{host}}
+Content-Type:{{contentType}}
+
+{
+    "name":"Cormac McCarthy",
+    "email": "shake@library.com"
+}
+
+### update a user
+PUT {{host}}/2
+Content-Type:{{contentType}}
+
+{
+    "name": "Shakespear"
+
+}
+
+### Get a single user 
+GET {{host}}/2

@@ -30,11 +30,19 @@ class BaseDataManager {
 
     }
 
-    findByPk(id){
+    async findByPk(id){
+        let custError = null
         try {
-            return this.model.findByPk(id)
+            const result = await this.model.findByPk(id)
+            if(!result){
+                custError = new Error(`The record with id ${id} does not exist in the database`)
+                custError.status = 404
+                throw custError
+            }
+            return result
         } catch (error) {
             console.log(error)
+            if (custError) throw custError
             throw new Error(error)   
         }
     }

@@ -1,9 +1,9 @@
 
 const constructBookRoutes = require('./book')
-const constructBorrowerRoutes = require('./borrower');
+const constructUserRoutes = require('./user');
 
 // inject the app to the routes constructor from the main
 module.exports = function constructRoutes(app){
     constructBookRoutes(app);
-    constructBorrowerRoutes(app);    
+    constructUserRoutes(app);    
 }

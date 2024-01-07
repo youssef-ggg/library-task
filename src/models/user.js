@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class book extends Model {
+  class User extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,38 +13,25 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  book.init({
+  User.init({
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    title: {
-        type:DataTypes.STRING,
-        allowNull:false
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    ISBN: {
-        type:DataTypes.STRING,
-        allowNull:false
-    },
-    author: {
-        type: DataTypes.STRING,
-        //allow null defualts to true
-    },
-    quantity: {
-        type:DataTypes.INTEGER,
-        allowNul:false,
-        defaultValue: 0 
-    },
-    shelfLocation: {
-        type:DataTypes.STRING,
-        allowNull:false,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     createdAt: {
-        allowNull: false,
-        type: DataTypes.DATE,
-        defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
+      allowNull: false,
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
     },
     updatedAt: {
       allowNull: false,
@@ -53,9 +40,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'book',
-    tableName: 'book',
-    freezeTableName:true
+    modelName: 'user',
+    tableName:'user',
+    freezeTableName:true,
   });
-  return book;
+  return User;
 };

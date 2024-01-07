@@ -13,8 +13,13 @@ class BaseContoller {
             const result =  await this.service.create(req.body)
             res.send(result)
         } catch (error) {
+            //TODO: handle error in some form of errorHandler
             console.log(error)
-            res.status(500).send(error)   
+            if(error.status){
+                return res.status(error.status).send(error.message)
+            }else{
+                return res.status(500).send(error.message)
+            } 
         }
     }
 
@@ -24,7 +29,11 @@ class BaseContoller {
             res.send(result)
         } catch (error) {
             console.log(error)
-            res.status(500).send(error)   
+            if(error.status){
+                return res.status(error.status).send(error.message)
+            }else{
+                return res.status(500).send(error.message)
+            }
         }
     }
 
@@ -34,7 +43,11 @@ class BaseContoller {
             res.send(result)
         } catch (error) {
             console.log(error)
-            res.status(500).send(error)   
+            if(error.status){
+                res.status(error.status).send(error.message)
+            }else{
+                res.status(500).send(error.message)
+            } 
         }
     }
 
@@ -43,14 +56,12 @@ class BaseContoller {
             const result =  await this.service.browseAll(req.query)
             res.send(result)
         } catch (error) {
-            // TODO ERROR httpRespond and handling to a new modules in the src/utils
             console.log(error)
             if(error.status){
-                res.status(error.status).send(error.message)
+                return res.status(error.status).send(error.message)
             }else{
-                res.status(500).send(error.message)   
-        
-            }
+                return res.status(500).send(error.message)
+            }  
         }
     }
 
