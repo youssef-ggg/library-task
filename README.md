@@ -12,4 +12,9 @@ It uses express.js for routing and sequelize for database communcaion
 4. run `npm run dev` this start the app
 
 ## Information
-The documentation of the input and the output can be seen in test/api folder and if you installed the Rest Client extention on VSCode you can run test the application api from the files in the test/api e.g. the book.http file
+The documentation of the input and the output APIS can be seen in test/api folder and if you installed the Rest Client extention on VSCode you can run these APIS  in the ./test/api file example the book.http file
+            
+## The code Architecture  
+The code follows the simple MVC model with a datamanager archituctere it can be extended with more modules there is the controllers -> service -> datamnager layer
+the each model's datamanager layer acesses the model related to it and does the model's crud operations.
+There is a base for each layer that each layer module inherits from it for the common operations.
