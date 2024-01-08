@@ -1,19 +1,15 @@
 const BaseService = require('../base/baseService.js')
 
 class BorrowedBookService extends BaseService {
-    constructor({ dataManager, userDataManager, bookDataManager }) {
+    constructor({ dataManager }) {
         super({dataManager})
-        this.userDataManager = userDataManager
-        this.bookDataManager = bookDataManager
         
     }
 
     // ovrides the create from the BaseService
     async create(body){
         const {
-            dueDate,
-            bookId,
-            userId,            
+            dueDate
         } = body
 
 
