@@ -16,8 +16,7 @@ class BorrowedBookService extends BaseService {
             userId,            
         } = body
 
-console.log("WAAAAAAAAA")
-console.log(this.dataManager)
+
         // TODO Handle timestamps and or string duedate as input
         if(!dueDate){
             const dueDate = new Date()
