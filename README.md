@@ -1,9 +1,10 @@
 # library-task
 ## Intro
-This is a simple library node.js API that writes to a relation datababse
+This is a simple library node.js API that writes to a datababse
 It uses express.js for routing and sequelize for database communcaion
 ## prerequest
-- a Relational database Eithe MYSQL or postgres 
+- A Relational database Either MYSQL or postgres
+- Node.js installed 
 - create a database (TODO:make this part of the build process)  
 ## Intialization
 1. create .env file the .env variables are in the .env.example folder the user can replace the values with his own
