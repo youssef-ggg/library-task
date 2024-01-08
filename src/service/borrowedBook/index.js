@@ -1,7 +1,9 @@
-const { borrowedBookDataManager } = require('../../dataManager')
+const { bookDataManager,borrowedBookDataManager,userDataManager } = require('../../dataManager')
 
-const BorrowedBookService = require('./userService.js')
+const BorrowedBookService = require('./borrowedBook.js')
 
 module.exports = new BorrowedBookService({
-    dataManager: borrowedBookDataManager
+    dataManager: borrowedBookDataManager,
+    bookDataManager,
+    userDataManager
 })

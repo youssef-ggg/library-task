@@ -1,14 +1,14 @@
 const borrowedBookController = require('./borrowedBook.js')
 
-const borroedBookRouter = require('express').Router()
+const borrowedBookRouter = require('express').Router()
 
 module.exports = function constructBorrowedBookRoutes(app){
 
-    borroedBookRouter.get('/', borrowedBookController.browseAll)
-    borroedBookRouter.post('/',borrowedBookController.create)
-    borroedBookRouter.put('/:id',borrowedBookController.update)
-    borroedBookRouter.get('/:id',borrowedBookController.findByPk)
+    borrowedBookRouter.get('/', borrowedBookController.browseAll)
+    borrowedBookRouter.post('/',borrowedBookController.create)
+    borrowedBookRouter.put('/:id',borrowedBookController.update)
+    borrowedBookRouter.get('/:id',borrowedBookController.findByPk)
 
-    app.use("/borrow-book", userRouter);
+    app.use("/borrow-book", borrowedBookRouter);
     
 }

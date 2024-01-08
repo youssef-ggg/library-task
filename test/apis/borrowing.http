@@ -1,0 +1,33 @@
+
+@hostname = localhost
+@port = 3000
+@host = http://{{hostname}}:{{port}}/borrow-book
+@contentType = application/json
+
+## Get all borrowing
+# - you can filter the borrowing books by th user
+# - you can order by due date
+# passed 
+GET {{host}}?userId=1
+Content-Type:{{contentType}}
+
+### borrow a book if due date not passed it defaults to 30 days
+POST {{host}}
+Content-Type:{{contentType}}
+
+{
+    "userId": 1,
+    "bookId": 1
+}
+
+### update the borrowing process
+PUT {{host}}/2
+Content-Type:{{contentType}}
+
+{
+    "author":"Shakespear"
+
+}
+
+### Get a single borrowing 
+GET {{host}}/1
